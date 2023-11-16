@@ -15,14 +15,18 @@ const MemeApp: React.FC = () => {
     value: '',
   });
   
+  const [isLoading, setIsLoading] = useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       const response = await fetch(BASE_URL);
       
       if (response.ok) {
         const meme: MemeResponse = await response.json();
         const newMeme = {...meme};
         setMeme(newMeme);
+        setIsLoading(false);
       }
     };
     
@@ -30,9 +34,11 @@ const MemeApp: React.FC = () => {
   }, []);
   
   return (
-    <>
-      <MemeItem meme={meme}/>
-    </>
+    <div className="w-100 bg-body-tertiary p-5">
+      {isLoading ? 'Loading...' : (
+        <MemeItem meme={meme}/>
+      )}
+    </div>
   );
 };
 

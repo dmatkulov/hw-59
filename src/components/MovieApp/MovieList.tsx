@@ -11,14 +11,18 @@ const MovieList: React.FC<Props> = (props) => {
   return (
     <>
       <h4 className="mb-3 mt-5">Add to watchlist</h4>
-      {props.movies.map((movie) => (
-        <MovieItem
-          key={movie.id}
-          movie={movie}
-          onClick={() => props.onDelete(movie.id)}
-          onChange={(event) => props.changeTitle(event, movie.id)}
-        />
-      ))}
+      {props.movies.length > 0 ? (
+        props.movies.map((movie) => (
+          <MovieItem
+            key={movie.id}
+            movie={movie}
+            onClick={() => props.onDelete(movie.id)}
+            onChange={(event) => props.changeTitle(event, movie.id)}
+          />
+        ))
+      ) : (
+        <div>Your list is empty</div>
+      )}
     </>
   );
 };

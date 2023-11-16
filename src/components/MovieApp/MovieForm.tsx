@@ -27,16 +27,17 @@ const MovieForm: React.FC<Props> = ({onSubmit}) => {
   
   return (
     <form onSubmit={onFormSubmit} className="row">
-      <div className="col-10 w-100 mb-4">
-        <label htmlFor="movie"></label>
-        <input
-          type="text"
-          value={movie.title}
-          onChange={changeTitle}
-          required
-          placeholder="Add new movie to watchlist"
-          className="form-control"
-        />
+      <div className="col-10 w-100 mb-3">
+        <label htmlFor="movie" className="w-100">
+          <input
+            type="text"
+            value={movie.title}
+            onChange={changeTitle}
+            required
+            placeholder="Add new movie to watchlist"
+            className="form-control"
+          />
+        </label>
       </div>
       <div className="col-auto w-100">
         <button

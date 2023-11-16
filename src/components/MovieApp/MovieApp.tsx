@@ -37,7 +37,7 @@ const MovieApp = () => {
   };
   
   return (
-    <div className='col bg-body-tertiary p-5'>
+    <div className='w-100 bg-body-tertiary p-5'>
       <MovieForm
         onSubmit={addMovie}
       />
