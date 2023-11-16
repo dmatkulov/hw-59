@@ -8,16 +8,20 @@ interface Props {
 }
 const MovieItem: React.FC<Props> = React.memo( function MovieItem({movie, onClick, onChange}) {
   return (
-    <div className="card p-3">
-      <input
-        value={movie.title}
-        onChange={(e) => onChange(e, movie.id)}
-        className="border-0"
-      />
-      <button
-        className="btn-close"
-        onClick={onClick}
-      />
+    <div className="text-bg-dark d-flex justify-content-between align-items-center p-4 rounded-3 mb-3">
+        <input
+          value={movie.title}
+          onChange={(e) => onChange(e, movie.id)}
+          className="border-0 bg-transparent w-75"
+        />
+      <div>
+        <button
+          className="btn btn-danger"
+          onClick={onClick}
+        >
+          Remove
+        </button>
+      </div>
     </div>
   );
 }, (prevProps, nextProps) => {

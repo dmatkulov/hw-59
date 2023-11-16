@@ -1,4 +1,5 @@
 import MovieApp from '../../components/MovieApp/MovieApp';
+import MemeApp from '../../components/MemeApp/MemeApp';
 
 function App() {
   
@@ -10,7 +11,7 @@ function App() {
             <MovieApp/>
           </div>
           <div className="col-6">
-            Memes app will be here
+            <MemeApp/>
           </div>
       </div>
       </div>

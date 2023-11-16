@@ -10,7 +10,7 @@ interface Props {
 const MovieList: React.FC<Props> = (props) => {
   return (
     <>
-      <h4>Add to watchlist</h4>
+      <h4 className="mb-3 mt-5">Add to watchlist</h4>
       {props.movies.map((movie) => (
         <MovieItem
           key={movie.id}

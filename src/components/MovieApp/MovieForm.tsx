@@ -27,7 +27,7 @@ const MovieForm: React.FC<Props> = ({onSubmit}) => {
   
   return (
     <form onSubmit={onFormSubmit} className="row">
-      <div className="form-group">
+      <div className="col-10 w-100 mb-4">
         <label htmlFor="movie"></label>
         <input
           type="text"
@@ -38,9 +38,13 @@ const MovieForm: React.FC<Props> = ({onSubmit}) => {
           className="form-control"
         />
       </div>
-      <div className="col">
-        
-        <button type="submit" className="btn btn-primary">Add</button>
+      <div className="col-auto w-100">
+        <button
+          type="submit"
+          className="btn btn-dark w-100"
+        >
+          Add
+        </button>
       </div>
     </form>
   );
