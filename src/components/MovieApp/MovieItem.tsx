@@ -1,19 +1,27 @@
 import * as React from 'react';
+import {Movie} from '../../types';
 
 interface Props {
-  title: string;
+  movie: Movie;
   onClick: React.MouseEventHandler;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>, id: string) => void;
 }
-const MovieItem: React.FC<Props> = React.memo( function MovieItem({title, onClick, onChange}) {
+const MovieItem: React.FC<Props> = React.memo( function MovieItem({movie, onClick, onChange}) {
   return (
     <div className="card p-3">
-      <input value={title} onChange={onChange} className="border-0"/>
-      <button className="btn-close" onClick={onClick}></button>
+      <input
+        value={movie.title}
+        onChange={(e) => onChange(e, movie.id)}
+        className="border-0"
+      />
+      <button
+        className="btn-close"
+        onClick={onClick}
+      />
     </div>
   );
 }, (prevProps, nextProps) => {
-  return prevProps.title === nextProps.title;
+  return prevProps.movie.title === nextProps.movie.title;
 });
 
 export default MovieItem;

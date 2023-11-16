@@ -12,7 +12,7 @@ const MovieForm: React.FC<Props> = ({onSubmit}) => {
   const changeTitle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setMovie((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      title: e.target.value,
     }));
   };
   
@@ -26,18 +26,20 @@ const MovieForm: React.FC<Props> = ({onSubmit}) => {
   };
   
   return (
-    <form onSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit} className="row">
       <div className="form-group">
         <label htmlFor="movie"></label>
         <input
           type="text"
-          name="movie"
-          id="movie"
-          placeholder="Add new movie to watchlist"
-          className="form-control"
           value={movie.title}
           onChange={changeTitle}
+          required
+          placeholder="Add new movie to watchlist"
+          className="form-control"
         />
+      </div>
+      <div className="col">
+        
         <button type="submit" className="btn btn-primary">Add</button>
       </div>
     </form>

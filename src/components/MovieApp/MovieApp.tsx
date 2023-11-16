@@ -24,7 +24,7 @@ const MovieApp = () => {
     
     setMovie((prevState) => prevState.map((movie) => {
       if (movie.id === id) {
-        return {...movie, name: newTitle};
+        return {...movie, title: newTitle};
       }
       return movie;
     }));
@@ -46,7 +46,6 @@ const MovieApp = () => {
         changeTitle={changeTitle}
         onDelete={deleteMovie}
       />
-      MovieApp
     </div>
   );
 };

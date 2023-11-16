@@ -7,16 +7,16 @@ interface Props {
   onDelete: (id: string) => void;
   changeTitle: (event: React.ChangeEvent<HTMLInputElement>, id: string) => void;
 }
-const MovieList: React.FC<Props> = ({movies, onDelete, changeTitle}) => {
+const MovieList: React.FC<Props> = (props) => {
   return (
     <>
       <h4>Add to watchlist</h4>
-      {movies.map((movie) => (
+      {props.movies.map((movie) => (
         <MovieItem
           key={movie.id}
-          title={movie.title}
-          onClick={() => onDelete(movie.id)}
-          onChange={(event) => changeTitle(event, movie.id)}
+          movie={movie}
+          onClick={() => props.onDelete(movie.id)}
+          onChange={(event) => props.changeTitle(event, movie.id)}
         />
       ))}
     </>
